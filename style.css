@@ -21,13 +21,13 @@
     --display-dark: #4d4d4d;
     --primary-dark: #2e2e2e;
     --btn-area-dark: #494949;
-    --btn-light-dark: #222222;
+    --btn-light-dark: #353535;
     --btn-dark-dark: #131313;
-    --btn-darker-dark: #000000;
+    --btn-darker-dark: #be7514;
 
-    --btn-light-hover-dark: #3a3a3a;
+    --btn-light-hover-dark: #424242;
     --btn-dark-hover-dark: #202020;
-    --btn-darker-hover-dark: #181818;
+    --btn-darker-hover-dark: #ca8327;
 
     --font: "Orbitron", sans-serif;;
 }
@@ -95,7 +95,7 @@ div#display{
 div#display p {
     text-align: end;
     margin-right: 5%;
-    margin-top: 5%;
+    margin-top: 2%;
     font-size: 55px;
     font-weight: bold;
 }
@@ -115,7 +115,7 @@ div#botoens {
 
 div#botoens input {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     border-radius: 6px;
     border: 2px solid var(--dark);
@@ -143,12 +143,14 @@ div#botoens input.btn-dark:hover {
     background-color: var(--btn-darker-hover);
 }
 
-div#botoens input#igual {
+div#botoens input.btn-darker {
     background-color: var(--btn-dark);
-    grid-row: 2 / 6;
-    grid-column: 4;
 }
 
-div#botoens input#igual:hover {
+div#botoens input.btn-darker:hover {
     background-color: var(--btn-dark-hover);
+}
+
+div#botoens input#zero {
+    grid-column: 1 / 3;
 }
