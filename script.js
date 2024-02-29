@@ -106,9 +106,105 @@ function theme() {
 
 //---------------------------------------------------------------------------------------------------
 
-function itens() {
-    let buttons = document.querySelectorAll('.btn');
-    let disp = document.getElementById('p-disp');
+var disp = document.getElementById('p-disp');
 
 
+// Função para atualizar o display com o valor passado
+function updateDisplay(value) {
+    disp.textContent += value;
 }
+
+// Função para limpar o display
+function clearDisplay() {
+    disp.textContent = '';
+}
+
+// Função para calcular o resultado da expressão no display
+function calculateResult() {
+    let expression = disp.textContent;
+
+    // Tenta calcular o resultado da expressão
+    try {
+        let result = eval(expression);
+        disp.textContent = result;
+    } catch (error) {
+        // Se ocorrer um erro na avaliação da expressão, exibe "Erro"
+        disp.textContent = 'Erro';
+    }
+}
+
+// Funções para adicionar os números ao display
+function sete() {
+    updateDisplay('7');
+}
+
+function oito() {
+    updateDisplay('8');
+}
+
+function nove() {
+    updateDisplay('9');
+}
+
+function quatro() {
+    updateDisplay('4');
+}
+
+function cinco() {
+    updateDisplay('5');
+}
+
+function seis() {
+    updateDisplay('6');
+}
+
+function um() {
+    updateDisplay('1');
+}
+
+function dois() {
+    updateDisplay('2');
+}
+
+function tres() {
+    updateDisplay('3');
+}
+
+function zero() {
+    updateDisplay('0');
+}
+
+// Função para adicionar o ponto decimal
+function dec() {
+    let lastChar = disp.textContent.slice(-1);
+    // Verifica se o último caractere no display já é um ponto decimal ou se já existe um ponto decimal na expressão
+    if (lastChar !== '.' && !disp.textContent.includes('.')) {
+        updateDisplay('.');
+    }
+}
+
+// Função para realizar a adição
+function add() {
+    updateDisplay('+');
+}
+
+// Função para realizar a subtração
+function subtract() {
+    updateDisplay('-');
+}
+
+// Função para realizar a multiplicação
+function multiply() {
+    updateDisplay('*');
+}
+
+// Função para realizar a divisão
+function divide() {
+    updateDisplay('/');
+}
+
+// Função para limpar o display quando o botão 'C' é pressionado
+document.querySelector('input[value="C"]').addEventListener('click', clearDisplay);
+
+// Evento de clique para o botão de igual
+document.querySelector('input#igual').addEventListener('click', calculateResult);
