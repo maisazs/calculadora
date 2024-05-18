@@ -29,7 +29,8 @@
     --btn-dark-hover-dark: #202020;
     --btn-darker-hover-dark: #ca8327;
 
-    --font: "Orbitron", sans-serif;;
+
+    --font: "Orbitron", sans-serif;
 }
 
 * {
@@ -37,6 +38,11 @@
     padding: 0;
     font-family: var(--font);
     transition: 0.5s;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
 }
 
 body.light-theme {
@@ -125,6 +131,10 @@ div#botoens input {
     box-shadow: 0 0 7px var(--shadow);
     transition: 0.3s;
     color: var(--dark);
+}
+
+div#botoens input.clean {
+    grid-column: 1 / 4;
 }
 
 input.btn-light {

@@ -15,32 +15,30 @@
             <p id="p-disp"></p>
         </div>
         <div id="botoens">
-            <input type="button" value="C" class="btn-darker btn">
-            <input type="button" value="+-" class="btn-darker btn">
-            <input type="button" value="%" class="btn-darker btn">
-            <input type="button" value="÷" class="btn-dark btn">
+            <input type="button" value="C" name="text1" class="btn-darker btn clean" onclick="location.reload()">
+            <input type="button" value="÷" name="divbtn" class="btn-dark btn num" onclick="displaynum(divbtn.value)">
 
-            <input type="button" value="7" class="btn-light btn">
-            <input type="button" value="8" class="btn-light btn">
-            <input type="button" value="9" class="btn-light btn">
-            <input type="button" value="x" class="btn-dark btn">
+            <input type="button" value="7" name="btn7" class="btn-light btn num" onclick="displaynum(btn7.value)">
+            <input type="button" value="8" name="btn8" class="btn-light btn num" onclick="displaynum(btn8.value)">
+            <input type="button" value="9" name="btn9" class="btn-light btn num" onclick="displaynum(btn9.value)">
+            <input type="button" value="x" name="mulbtn" class="btn-dark btn num" onclick="displaynum(mulbtn.value)">
 
 
-            <input type="button" value="4" class="btn-light btn">
-            <input type="button" value="5" class="btn-light btn">
-            <input type="button" value="6" class="btn-light btn">
-            <input type="button" value="-" class="btn-dark btn">
+            <input type="button" value="4" name="btn4" class="btn-light btn num" onclick="displaynum(btn4.value)">
+            <input type="button" value="5" name="btn5" class="btn-light btn num" onclick="displaynum(btn5.value)">
+            <input type="button" value="6" name="btn6" class="btn-light btn num" onclick="displaynum(btn6.value)">
+            <input type="button" value="-" name="subbtn" class="btn-dark btn num" onclick="displaynum(subbtn.value)">
 
 
-            <input type="button" value="1" class="btn-light btn">
-            <input type="button" value="2" class="btn-light btn">
-            <input type="button" value="3" class="btn-light btn">
-            <input type="button" value="+" class="btn-dark btn">
+            <input type="button" value="1" name="btn1" class="btn-light btn num" onclick="displaynum(btn1.value)">
+            <input type="button" value="2" name="btn2" class="btn-light btn num" onclick="displaynum(btn2.value)">
+            <input type="button" value="3" name="btn3" class="btn-light btn num" onclick="displaynum(btn3.value)">
+            <input type="button" name="addbtn" value="+" class="btn-dark btn num" onclick="displaynum(addbtn.value)">
 
 
-            <input type="button" value="0" id="zero" class="btn-light btn">
-            <input type="button" value="," class="btn-light btn">
-            <input type="button" value="=" class="btn-dark btn">
+            <input type="button" value="0" name="btn0" id="zero" class="btn-light btn unm" onclick="displaynum(btn0.value)">
+            <input type="button" value="." name="dot" class="btn-light btn num" onclick="displaynum(dot.value)">
+            <input type="button" value="=" name="eqlbtn" class="btn-dark btn num" onclick="text1.value=eval(text1.value)">
 
         </div>
     </div>
