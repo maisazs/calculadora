@@ -1,9 +1,101 @@
+//operações--------------------------------------------------------------------------------
+
+//operações--------------------------------------------------------------------------------
+
+let expression = '';
+
+const display = document.getElementById('display');
+
+function appendNumber(number) {
+    if (display.value === 'Erro') {
+        expression = '';
+    }
+    expression += number;
+    updateDisplay();
+}
+
+function appendDecimal() {
+    if (display.value === 'Erro') {
+        expression = '';
+    }
+    // Impede múltiplos pontos decimais no mesmo número
+    const lastNumber = expression.split(/[\+\-\*\/]/).pop();
+    if (!lastNumber.includes('.')) {
+        expression += '.';
+    }
+    updateDisplay();
+}
+
+function chooseOperation(op) {
+    if (expression === '') return;
+    if (isNaN(expression.slice(-1))) return; // Impede operadores consecutivos
+    expression += op;
+    updateDisplay();
+}
+
+function compute() {
+    try {
+        const result = eval(expression);
+        expression = result.toString();
+    } catch (error) {
+        expression = 'Erro';
+    }
+    updateDisplay();
+}
+
+function clearDisplay() {
+    expression = '';
+    updateDisplay();
+}
+
+function deleteLast() {
+    if (expression !== '') {
+        expression = expression.slice(0, -1);
+        updateDisplay();
+    }
+}
+
+function updateDisplay() {
+    display.value = expression;
+}
+
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    if (key >= '0' && key <= '9') {
+        appendNumber(key);
+    } else if (key === '.') {
+        appendDecimal();
+    } else if (key === '+') {
+        chooseOperation('+');
+    } else if (key === '-') {
+        chooseOperation('-');
+    } else if (key === '*') {
+        chooseOperation('*');
+    } else if (key === '/') {
+        chooseOperation('/');
+    } else if (key === 'Enter' || key === '=') {
+        compute();
+    } else if (key === 'Backspace') {
+        deleteLast();
+    } else if (key === 'Escape') {
+        clearDisplay();
+    }
+});
+
+
+//tema-----------------------------------------------------------------------
+
+function checkScreenSize() { // função para verificar o tamanho da tela
+    const mediaQuery = window.matchMedia('(min-width: 769px)');
+}
+
+
 function theme() { //função para alterar o tema (cores)
-    let img = document.querySelector('img#theme');
+    let img = document.querySelector('#theme');
     let body = document.body;
-    let disp = document.querySelector('div#display');
-    let calc = document.querySelector('div#calculadora');
-    let area_btn = document.querySelector('div#botoens');
+    let disp = document.querySelector('.display');
+    let calc = document.querySelector('.calculator');
+    let area_btn = document.querySelector('.buttons');
     let btn_light = document.getElementsByClassName('btn-light');
     let btn_dark = document.getElementsByClassName('btn-dark');
     let btn_darker = document.getElementsByClassName('btn-darker');
@@ -116,10 +208,4 @@ function theme() { //função para alterar o tema (cores)
         img.style.transform = 'rotate(' + currentRotation + 'deg)';
         img.setAttribute('data-rotation', currentRotation);
     }
-}
-
-//---------------------------------------------------------------------------------------------------
-
-function displaynum(n1) {
-    Calculator.text1.value = Calculator.text1.value + n1;
 }

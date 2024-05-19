@@ -3,46 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css">
-
     <title>Calculadora</title>
 </head>
 <body class="light-theme">
     <img src="img/dark.png" alt="mode" id="theme" onclick="theme()">
-    <div id="calculadora">
-        <div id="display" >
-            <p id="p-disp"></p>
-        </div>
-        <div id="botoens">
-            <input type="button" value="C" name="text1" class="btn-darker btn clean" onclick="location.reload()">
-            <input type="button" value="÷" name="divbtn" class="btn-dark btn num" onclick="displaynum(divbtn.value)">
+    <div class="calculator">
+        <input type="text" id="display" class="display" readonly>
+        <div class="buttons">
+            <button class="button clean btn-darker" onclick="clearDisplay()">C</button>
+            <button class="button btn-dark" onclick="chooseOperation('/')">/</button>
 
-            <input type="button" value="7" name="btn7" class="btn-light btn num" onclick="displaynum(btn7.value)">
-            <input type="button" value="8" name="btn8" class="btn-light btn num" onclick="displaynum(btn8.value)">
-            <input type="button" value="9" name="btn9" class="btn-light btn num" onclick="displaynum(btn9.value)">
-            <input type="button" value="x" name="mulbtn" class="btn-dark btn num" onclick="displaynum(mulbtn.value)">
+            <button class="button btn-light" onclick="appendNumber('7')">7</button>
+            <button class="button btn-light" onclick="appendNumber('8')">8</button>
+            <button class="button btn-light" onclick="appendNumber('9')">9</button>
+            <button class="button btn-dark" onclick="chooseOperation('*')">*</button>
 
+            <button class="button btn-light" onclick="appendNumber('4')">4</button>
+            <button class="button btn-light" onclick="appendNumber('5')">5</button>
+            <button class="button btn-light" onclick="appendNumber('6')">6</button>
+            <button class="button btn-dark" onclick="chooseOperation('-')">-</button>
 
-            <input type="button" value="4" name="btn4" class="btn-light btn num" onclick="displaynum(btn4.value)">
-            <input type="button" value="5" name="btn5" class="btn-light btn num" onclick="displaynum(btn5.value)">
-            <input type="button" value="6" name="btn6" class="btn-light btn num" onclick="displaynum(btn6.value)">
-            <input type="button" value="-" name="subbtn" class="btn-dark btn num" onclick="displaynum(subbtn.value)">
+            <button class="button btn-light" onclick="appendNumber('1')">1</button>
+            <button class="button btn-light" onclick="appendNumber('2')">2</button>
+            <button class="button btn-light" onclick="appendNumber('3')">3</button>
+            <button class="button btn-dark" onclick="chooseOperation('+')">+</button>
 
-
-            <input type="button" value="1" name="btn1" class="btn-light btn num" onclick="displaynum(btn1.value)">
-            <input type="button" value="2" name="btn2" class="btn-light btn num" onclick="displaynum(btn2.value)">
-            <input type="button" value="3" name="btn3" class="btn-light btn num" onclick="displaynum(btn3.value)">
-            <input type="button" name="addbtn" value="+" class="btn-dark btn num" onclick="displaynum(addbtn.value)">
-
-
-            <input type="button" value="0" name="btn0" id="zero" class="btn-light btn unm" onclick="displaynum(btn0.value)">
-            <input type="button" value="." name="dot" class="btn-light btn num" onclick="displaynum(dot.value)">
-            <input type="button" value="=" name="eqlbtn" class="btn-dark btn num" onclick="text1.value=eval(text1.value)">
-
+            <button class="button zero btn-light" onclick="appendNumber('0')">0</button>
+            <button class="button btn-light" onclick="appendDecimal()">.</button>
+            <button class="button btn-light" onclick="deleteLast()">DEL</button>
+            <button class="button btn-dark" onclick="compute()">=</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

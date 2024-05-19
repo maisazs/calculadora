@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 :root {
-    --bg: #EBEBEB;
+    --bg: #F0F0F0;
     --primary: #F59FCA;
     --display: #B8AFB4;
     --btn-area: #F5C7E3;
@@ -22,40 +22,41 @@
     --primary-dark: #2e2e2e;
     --btn-area-dark: #494949;
     --btn-light-dark: #353535;
-    --btn-dark-dark: #131313;
+    --btn-dark-dark: #1d1d1d;
     --btn-darker-dark: #be7514;
 
     --btn-light-hover-dark: #424242;
-    --btn-dark-hover-dark: #202020;
+    --btn-dark-hover-dark: #2c2c2c;
     --btn-darker-hover-dark: #ca8327;
-
 
     --font: "Orbitron", sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
     font-family: var(--font);
     transition: 0.5s;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 body.light-theme {
     background-color: var(--bg);
-    transition: 0.5s;
 }
 
 body.dark-theme {
     background-color: var(--dark);
-    transition: 0.5s;
 }
 
-img#theme {
+#theme {
     display: block;
     width: 50px;
     margin: auto;
@@ -65,7 +66,7 @@ img#theme {
     transition: transform 0.5s ease;
 }
 
-div#calculadora {
+.calculator {
     background-color: var(--primary);
     width: 450px;
     height: 600px;
@@ -77,17 +78,9 @@ div#calculadora {
     border-radius: 30px;
     border: 2px solid var(--dark);
     box-shadow: 2px 2px 15px var(--shadow);
-    transition: 0.5s;
 }
 
-@media screen and (max-width: 600px){
-    div#calculadora {
-        width: 350px;
-        height: 500px;
-    }
-}
-
-div#display{
+.display {
     width: 92%;
     height: 15%;
     margin-inline: auto;
@@ -95,31 +88,23 @@ div#display{
     border-radius: 15px;
     border: 2px solid var(--dark);
     overflow: hidden;
-    transition: 0.5s;
-}
-
-div#display p {
     text-align: end;
-    margin-right: 5%;
-    margin-top: 2%;
-    font-size: 55px;
-    font-weight: bold;
+    font-size: 40px;
+    transition: 0;
 }
 
-div#botoens {
+.buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    
-
+    gap: 10px;
     background-color: var(--btn-area);
     width: 92%;
     height: 70%;
     margin-inline: auto;
     border: 2px solid var(--dark);
-    transition: 0.5s;
 }
 
-div#botoens input {
+.button {
     cursor: pointer;
     font-size: 30px;
     font-weight: 700;
@@ -133,34 +118,52 @@ div#botoens input {
     color: var(--dark);
 }
 
-div#botoens input.clean {
+button.clean {
     grid-column: 1 / 4;
 }
 
-input.btn-light {
+button.zero {
+    grid-column: 1 / 2;
+}
+
+button.btn-light {
     background-color: var(--btn-light);
 }
 
-input.btn-light:hover {
-    background-color: var(--btn-light-hover);
-}
-
-div#botoens input.btn-dark {
+button.btn-dark {
     background-color: var(--btn-darker);
 }
 
-div#botoens input.btn-dark:hover {
-    background-color: var(--btn-darker-hover);
-}
-
-div#botoens input.btn-darker {
+button.btn-darker {
     background-color: var(--btn-dark);
 }
 
-div#botoens input.btn-darker:hover {
-    background-color: var(--btn-dark-hover);
+@media screen and (min-width: 769px) {
+    button.btn-darker:hover {
+        background-color: var(--btn-dark-hover);
+    }
+
+    button.btn-dark:hover {
+        background-color: var(--btn-darker-hover);
+    }
+    
+    button.btn-light:hover {
+        background-color: var(--btn-light-hover);
+    }
 }
 
-div#botoens input#zero {
-    grid-column: 1 / 3;
+@media screen and (max-width:768px) {
+    .calculator {
+        width: 350px;
+        height: 550px;
+        margin-top: -30px;
+    }
+
+    #theme {
+        margin-top: 30px;
+    }
+
+    .buttons {
+        gap: 0;
+    }
 }
